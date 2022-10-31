@@ -1,0 +1,27 @@
+# Assuming you are inside the Vagrant VM using the `vagrant ssh` command
+# Copy the commands from https://k3s.io/ to install the Lightweight Kubernetes in the Vagrant VM
+curl -sfL https://get.k3s.io | sh -
+
+# Wait for a few minutes for k3s to get started
+sudo su
+k3s kubectl get node
+
+# Sample output
+# NAME        STATUS   ROLES                  AGE   VERSION
+# localhost   Ready    control-plane,master   10m   v1.22.5+k3s1
+
+
+# Inspect  the endpoints for the cluster and installed add-ons 
+kubectl cluster-info
+
+# List all the nodes in the cluster. 
+# To get a more detailed view of the nodes, the `-o wide` flag can be passed
+kubectl get nodes [-o wide] 
+
+# Describe a cluster node.
+# Typical configuration: node IP, capacity (CPU and memory), a list of running pods on the node, podCIDR, etc.
+kubectl describe node {{ NODE NAME }}
+
+# Quit the VM
+quit
+
