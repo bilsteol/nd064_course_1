@@ -1,11 +1,41 @@
 ## Docker commands used to build the application 
-# TODO: insert the docker build command
+docker build -t techtrends:1.0 .
 
 ## Docker commands used to run the application
-# TODO: insert the docker run command
+docker run -d -p 7111:3111 techtrends:1.0
 
 ## Docker commands used to get the application logs
-# TODO: insert the docker logs command
+## get the container name
+
+docker ps
+
+# example output:
+# CONTAINER ID   IMAGE            COMMAND           CREATED         STATUS         PORTS                    NAMES
+# 257ddd8d163f   techtrends:1.0   "python app.py"   2 minutes ago   Up 2 minutes   0.0.0.0:7111->3111/tcp   dazzling_proskuriakova
+
+# get the logs (console output)
+docker logs -f techtrends:1.0 dazzling_proskuriakova
+
 
 ## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+[2022-10-31 10:22:53,157] [WARNING] -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+[2022-10-31 10:22:53,157] [INFO] -  * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+[2022-10-31 10:22:59,555] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:22:59] "GET / HTTP/1.1" 200 -
+[2022-10-31 10:22:59,568] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:22:59] "GET /static/css/main.css HTTP/1.1" 200 -
+[2022-10-31 10:22:59,649] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:22:59] "GET /favicon.ico HTTP/1.1" 404 -
+[2022-10-31 10:27:16,485] [INFO] - Retrieve post '2020 CNCF Annual Report'
+[2022-10-31 10:27:16,489] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:27:16] "GET /1 HTTP/1.1" 200 -
+[2022-10-31 10:27:16,509] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:27:16] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-10-31 10:27:19,396] [INFO] - About-us page retrieved
+[2022-10-31 10:27:19,399] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:27:19] "GET /about HTTP/1.1" 200 -
+[2022-10-31 10:27:19,416] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:27:19] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-10-31 10:27:24,853] [INFO] - Status request successfull
+[2022-10-31 10:27:24,854] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:27:24] "GET /healthz HTTP/1.1" 200 -
+[2022-10-31 10:27:30,036] [INFO] - Metrics request successfull
+[2022-10-31 10:27:30,036] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:27:30] "GET /metrics HTTP/1.1" 200 -
