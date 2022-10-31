@@ -1,0 +1,11 @@
+apiVersion: v1
+name: techtrends 
+description: Install the techtrends deployment
+keywords:
+- python
+- techtrends 
+- udacity
+version: 1.0.0
+maintainers:
+- name: bilsteol 
+  email: oliver.bilstein@ista.com
