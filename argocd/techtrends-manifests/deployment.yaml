@@ -13,7 +13,7 @@ metadata:
 spec:
   ## Set the number of replicas.
   ## This will create a ReplicaSet that will manage 1 pods of the Python techtrends application.
-  replicas: 1
+  replicas: 3
   ## Identify the pods managed by this Deployment using the following selectors.
   ## In this case, all pods with the label `techtrends`.
   selector:
