@@ -16,9 +16,6 @@ image:
 replicaCount: 3
 containerPort: 3111
 
-livenessProbePath: /healthz
-readinessProbePath: /healthz
-
 resources:
   requests:
     memory: "90Mi"
