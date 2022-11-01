@@ -14,7 +14,7 @@ image:
   pullPolicy: Always
 
 replicaCount: 5
-containerPort: 3111
+containerPort: 7111
 
 resources:
   requests:

@@ -2,21 +2,16 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: techtrends 
-  namespace: techtrends-prod
+  namespace: argocd
 spec:
   destination:
     namespace: default
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: argocd/techtrends-manifests
-    repoURL: https://github.com/bilsteol/nd064_course_1
-    targetRevision: HEAD
-  source:
     helm:
       valueFiles:
       - values-prod.yaml
     path: helm
-    repoURL: https://github.com/udacity/nd064_course_1 
-    targetRevision: HEAD    
-  syncPolicy: {}
+    repoURL: https://github.com/bilsteol/nd064_course_1 
+    targetRevision: HEAD
