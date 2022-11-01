@@ -1,3 +1,5 @@
+## Installation and usage k3s
+
 # Assuming you are inside the Vagrant VM using the `vagrant ssh` command
 # Copy the commands from https://k3s.io/ to install the Lightweight Kubernetes in the Vagrant VM
 curl -sfL https://get.k3s.io | sh -
@@ -22,6 +24,18 @@ kubectl get nodes [-o wide]
 # Typical configuration: node IP, capacity (CPU and memory), a list of running pods on the node, podCIDR, etc.
 kubectl describe node {{ NODE NAME }}
 
-# Quit the VM
-quit
 
+## Installation ArgoCD
+
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+# => wir brauchen dann einen argocd-server, den wir aus der vagrant box via NodePort erreichen können!
+
+# ArgoCD credentials ermitteln
+
+username: admin
+
+password:
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+Beispiel: mzg3Fa2v4HngBl1j

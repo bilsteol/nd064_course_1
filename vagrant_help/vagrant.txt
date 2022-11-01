@@ -17,5 +17,7 @@ vagrant destroy
 # Copy file from host to VM
 scp -P 2222 service.yaml vagrant@127.0.0.1:/home/vagrant
 
+# => user vagrant / vagrant
+
 #oder 
 vagrant upload source [destination] [name|id]
