@@ -39,3 +39,7 @@ username: admin
 password:
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 Beispiel: mzg3Fa2v4HngBl1j
+
+# ArgoCD URL
+
+https://192.168.50.4:30008/
