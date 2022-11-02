@@ -1,8 +1,8 @@
 ## Docker commands used to build the application 
-docker build -t techtrends:1.0 .
+docker build -t techtrends:1.1.0 .
 
 ## Docker commands used to run the application
-docker run -d -p 7111:3111 techtrends:1.0
+docker run -d -p 7111:3111 --name techtrends techtrends:1.1.0 -n techtrends
 
 ## Docker commands used to get the application logs
 ## get the container name
@@ -10,32 +10,70 @@ docker run -d -p 7111:3111 techtrends:1.0
 docker ps
 
 # example output:
-# CONTAINER ID   IMAGE            COMMAND           CREATED         STATUS         PORTS                    NAMES
-# 257ddd8d163f   techtrends:1.0   "python app.py"   2 minutes ago   Up 2 minutes   0.0.0.0:7111->3111/tcp   dazzling_proskuriakova
+#CONTAINER ID   IMAGE                      COMMAND                  CREATED         STATUS                    PORTS                    NAMES
+#4da4eaf9b6c5   techtrends:1.1.0           "python app.py"          2 minutes ago   Up About a minute         0.0.0.0:7111->3111/tcp   techtrends
 
 # get the logs (console output)
-docker logs -f techtrends:1.0 dazzling_proskuriakova
+docker logs -f techtrends
 
 
 ## Logs from the container running the TechTrends application
+C:\Allgemein\Udacity\Cloud_Native\project1\nd064_course_1>docker logs -f techtrends
  * Serving Flask app 'app' (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.
  * Debug mode: off
-[2022-10-31 10:22:53,157] [WARNING] -  * Running on all addresses.
+[2022-11-02 08:25:13,041] [WARNING] -  * Running on all addresses.
    WARNING: This is a development server. Do not use it in a production deployment.
-[2022-10-31 10:22:53,157] [INFO] -  * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
-[2022-10-31 10:22:59,555] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:22:59] "GET / HTTP/1.1" 200 -
-[2022-10-31 10:22:59,568] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:22:59] "GET /static/css/main.css HTTP/1.1" 200 -
-[2022-10-31 10:22:59,649] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:22:59] "GET /favicon.ico HTTP/1.1" 404 -
-[2022-10-31 10:27:16,485] [INFO] - Retrieve post '2020 CNCF Annual Report'
-[2022-10-31 10:27:16,489] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:27:16] "GET /1 HTTP/1.1" 200 -
-[2022-10-31 10:27:16,509] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:27:16] "GET /static/css/main.css HTTP/1.1" 304 -
-[2022-10-31 10:27:19,396] [INFO] - About-us page retrieved
-[2022-10-31 10:27:19,399] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:27:19] "GET /about HTTP/1.1" 200 -
-[2022-10-31 10:27:19,416] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:27:19] "GET /static/css/main.css HTTP/1.1" 304 -
-[2022-10-31 10:27:24,853] [INFO] - Status request successfull
-[2022-10-31 10:27:24,854] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:27:24] "GET /healthz HTTP/1.1" 200 -
-[2022-10-31 10:27:30,036] [INFO] - Metrics request successfull
-[2022-10-31 10:27:30,036] [INFO] - 172.17.0.1 - - [31/Oct/2022 10:27:30] "GET /metrics HTTP/1.1" 200 -
+[2022-11-02 08:25:13,041] [WARNING] -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+[2022-11-02 08:25:13,041] [INFO] -  * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+[2022-11-02 08:25:13,041] [INFO] -  * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+[2022-11-02 08:25:17,088] [INFO] - About-us page retrieved
+[2022-11-02 08:25:17,088] [INFO] - About-us page retrieved
+[2022-11-02 08:25:17,096] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:25:17] "GET /about HTTP/1.1" 200 -
+[2022-11-02 08:25:17,096] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:25:17] "GET /about HTTP/1.1" 200 -
+[2022-11-02 08:25:17,112] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:25:17] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-11-02 08:25:17,112] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:25:17] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-11-02 08:25:18,653] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:25:18] "GET /create HTTP/1.1" 200 -
+[2022-11-02 08:25:18,653] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:25:18] "GET /create HTTP/1.1" 200 -
+[2022-11-02 08:25:18,672] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:25:18] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-11-02 08:25:18,672] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:25:18] "GET /static/css/main.css HTTP/1.1" 304 -
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+[2022-11-02 08:26:26,279] [WARNING] -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+[2022-11-02 08:26:26,279] [WARNING] -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+[2022-11-02 08:26:26,279] [INFO] -  * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+[2022-11-02 08:26:26,279] [INFO] -  * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+[2022-11-02 08:26:28,163] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:26:28] "GET /create HTTP/1.1" 200 -
+[2022-11-02 08:26:28,163] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:26:28] "GET /create HTTP/1.1" 200 -
+[2022-11-02 08:26:28,191] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:26:28] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-11-02 08:26:28,191] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:26:28] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-11-02 08:27:03,576] [INFO] - About-us page retrieved
+[2022-11-02 08:27:03,576] [INFO] - About-us page retrieved
+[2022-11-02 08:27:03,579] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:03] "GET /about HTTP/1.1" 200 -
+[2022-11-02 08:27:03,579] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:03] "GET /about HTTP/1.1" 200 -
+[2022-11-02 08:27:03,599] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:03] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-11-02 08:27:03,599] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:03] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-11-02 08:27:06,590] [INFO] - About-us page retrieved
+[2022-11-02 08:27:06,590] [INFO] - About-us page retrieved
+[2022-11-02 08:27:06,591] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:06] "GET /about HTTP/1.1" 200 -
+[2022-11-02 08:27:06,591] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:06] "GET /about HTTP/1.1" 200 -
+[2022-11-02 08:27:06,605] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:06] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-11-02 08:27:06,605] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:06] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-11-02 08:27:10,424] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:10] "GET / HTTP/1.1" 200 -
+[2022-11-02 08:27:10,424] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:10] "GET / HTTP/1.1" 200 -
+[2022-11-02 08:27:10,444] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:10] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-11-02 08:27:10,444] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:10] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-11-02 08:27:11,121] [INFO] - Retrieve post '2020 CNCF Annual Report'
+[2022-11-02 08:27:11,121] [INFO] - Retrieve post '2020 CNCF Annual Report'
+[2022-11-02 08:27:11,125] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:11] "GET /1 HTTP/1.1" 200 -
+[2022-11-02 08:27:11,125] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:11] "GET /1 HTTP/1.1" 200 -
+[2022-11-02 08:27:11,141] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:11] "GET /static/css/main.css HTTP/1.1" 304 -
+[2022-11-02 08:27:11,141] [INFO] - 172.17.0.1 - - [02/Nov/2022 08:27:11] "GET /static/css/main.css HTTP/1.1" 304 -
